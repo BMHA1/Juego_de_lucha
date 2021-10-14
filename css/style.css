@@ -1,8 +1,11 @@
-div{border: 1px red solid;
-   height: 15em; 
-   width: 10em;
-   padding: 0em;
+body{
+    margin: 0;
 }
+
+@media (max-width:768px) {
+    
+}
+
 .pantalla-principal-seleccion{
     gap: 15em;
     display: flex;
@@ -10,6 +13,21 @@ div{border: 1px red solid;
     align-items: center;
     width: 100%;
     height:100vh;
+    background-image: url(/Juego_de_lucha/Imagenes/2101913.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
-:-moz-suppressed
-:-moz-suppressed
+.imagen-seleccionado{
+    width: 10em;
+    height: 15em;
+    border: 0.1em solid red  ;
+}
+[class ^= card]{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 15em; 
+    width: 10em;
+    
+}
