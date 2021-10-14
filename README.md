@@ -1,5 +1,5 @@
 # Juego_de_lucha
-##HERRAMIENTAS
+## HERRAMIENTAS
 -HTML
 -CSS
 -JAVASCRIPT
