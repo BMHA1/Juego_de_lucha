@@ -10,7 +10,7 @@ class Escenario {
 }
 
 class Avatar {
-    constructor(nombre, fuerza) {
+    constructor(nombre, fuerza, img) {
         this.nombre = nombre;
         this.fuerza = fuerza
     }
@@ -33,7 +33,7 @@ class Jugador {
 // }
 
 
-let avatar1 = new Avatar("Darth Vader", "200")
+let avatar1 = new Avatar("Darth Vader", "200", "/Imagenes/Darth_Vader.jpg")
 console.log(avatar1)
 let avatar2 = new Avatar("Yoda", "350")
 console.log(avatar2)
@@ -49,55 +49,51 @@ console.log(jugador2)
 let escenario1 = new Escenario()
 
 // PROCESO DE SELECCION 
-const avatarDarthVader = () => {
-    // alert("hola") //entra en función 
 
-    if (jugador1.avatar == undefined) { //si jugador1.avatar está vacío inserta a avatar1 
-        let result = jugador1.avatar = avatar1
-        console.log(result) //prueba exitosa
-    } else if (jugador1.avatar !== undefined && jugador2.avatar == undefined) { //si jugador1.avatar ya está lleno, inserta a avatar1 a jugador2 
-        jugador2.avatar = avatar1
-    } else if (jugador1.avatar == undefined && jugador2.avatar == undefined) {
+const avatarSelection = (player) => {
 
-        alert("ERROR!!")
-    }
-}
+    if (jugador1.avatar == undefined || jugador2.avatar == undefined) {
 
-const avatarYoda = () => {
-    // alert("hola") //entra en función 
+        // alert("hola") //entra en función 
+        switch (player) {
+            case 'dartVader':
 
-    if (jugador1.avatar == undefined) { //si jugador1.avatar está vacío inserta a avatar2
-        let result = jugador1.avatar = avatar2
-        console.log(result) //prueba exitosa
-    } else if (jugador1.avatar !== undefined && jugador2.avatar == undefined) { //si jugador1.avatar ya está lleno, inserta a avatar1 a jugador2 
-        jugador2.avatar = avatar2
-    } else if (jugador1.avatar !== undefined && jugador2.avatar !== undefined) {
-        alert("ERROR!!")
-    }
-}
+                if (jugador1.avatar == undefined) {
+                    let result = jugador1.avatar = avatar1
 
-const avatarDarthHall = () => {
-    // alert("hola") //entra en función 
-    if (jugador1.avatar == undefined) { //si jugador1.avatar está vacío inserta a avatar2
-        let result = jugador1.avatar = avatar3
-        console.log(result) //prueba exitosa
-    } else if (jugador1.avatar !== undefined && jugador2.avatar == undefined) { //si jugador1.avatar ya está lleno, inserta a avatar a jugador2 
-        jugador2.avatar = avatar3
-    } else if (jugador1.avatar !== undefined && jugador2.avatar !== undefined) {
-        alert("ERROR!!")
-    }
-}
-const avatarLukeSkywalker = () => {
-    alert("hola") //entra en función
-    if (jugador1.avatar == undefined) { //si jugador1.avatar está vacío inserta a avatar2
-        let result = jugador1.avatar = avatar4
-        console.log(result) //prueba exitosa
-    } else if (jugador1.avatar !== undefined && jugador2.avatar == undefined) { //si jugador1.avatar ya está lleno, inserta a avatar1 a jugador2 
-        jugador2.avatar = avatar4
-    } else if (jugador1.avatar !== undefined && jugador2.avatar !== undefined) {
-        alert("ERROR!!")
+                }
+                console.log(result) //prueba exitosa
+                break;
+            case 'yoda':
+                if (jugador1.avatar == undefined) {
+                    let result = jugador1.avatar = avatar1
+
+                }
+                console.log(result) //prueba
+            case 'dartHall':
+                if (jugador1.avatar == undefined) {
+                    let result = jugador1.avatar = avatar1
+
+                }
+                console.log(result) //prueba
+            case 'lukeSkywalker'
+            if (jugador1.avatar == undefined) {
+                let result = jugador1.avatar = avatar1
+
+            }
+
+
+        }
+
     }
 }
 
 
-// PROCESO DE SELECCION 
+
+segundaPantalla()
+
+}
+
+
+
+
