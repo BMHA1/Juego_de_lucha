@@ -100,24 +100,27 @@ function avatarSelection(player) {
 
     } else {
         starGame(jugador1, jugador2);
-
-    }
-
-
-    const starGame = (a, b) => {
-        console.log(a)
-        console.log(b)
     }
 }
 
+let pantallaPrincipalCombate = document.querySelector(".pantalla-principal-combate")
+let pantallaPrincipalSeleccion=document.querySelector(".pantalla-principal-seleccion") 
+let contenedorJugador1=document.querySelector(".contenedor-seleccionado-1")
+let contenedorJugador2=document.querySelector(".contenedor-seleccionado-2")
 
 
 
-    const starGame = (a, b) => {
 
-        console.log(a)
-        console.log(b)
+const starGame = (a, b) => {
+    console.log(a)
+    console.log(b)
+    pantallaPrincipalSeleccion.style.display='none'
+    pantallaPrincipalCombate.style.display='flex';
 
-    }
+    alert("lo hemos logrado cabron")
+}
+
+funcionAtacar()
 
 
+funcionFinJuego()
