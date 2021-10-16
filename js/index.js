@@ -23,17 +23,22 @@ class Jugador {
     constructor(avatar) {
         this.avatar = avatar
     }
-    //    atacar(){
-    //        this.vida-this.fuerza
-    //    }
 
-    //    atacar(enemigo) {
-    //        enemigo.vida - this.fuerza
-    //    }
+    atacar(jugadorPierdevida, jugadorataca) {
+        let resultVida;
+        resultVida = jugadorPierdevida.avatar.vida - jugadorataca.avatar.fuerza
+        return jugadorPierdevida.avatar.vida = resultVida
+
+    }
+
 
 }
 
+function getRandomArbitrary(min, max) {
+    return Math.floor(Math.random() * (max - min) + min)
+}
 
+let fuerzaRamdon = getRandomArbitrary(5, 20)
 
 let avatar1 = new Avatar("Darth Vader", 0, `<img class="imagen-seleccionado" src="/Imagenes/Darth_Vader.jpg"alt="Darth Vader">`)
 // console.log(avatar1)
@@ -78,7 +83,7 @@ function avatarSelection(player) {
 
                     jugador1.avatar = avatar2;
 
-                    alert("selecciona un segundo jugador");
+
                 } else if (jugador2.avatar == undefined && jugador1.avatar !== avatar2) {
                     jugador2.avatar = avatar2;
                     starGame(jugador1, jugador2);
@@ -91,7 +96,7 @@ function avatarSelection(player) {
 
                     jugador1.avatar = avatar3;
 
-                    alert("selecciona un segundo jugador");
+
                 } else if (jugador2.avatar == undefined && jugador1.avatar !== avatar3) {
                     jugador2.avatar = avatar3;
                     starGame(jugador1, jugador2);
@@ -103,7 +108,7 @@ function avatarSelection(player) {
                     jugador1.avatar = avatar4;
 
 
-                    alert("selecciona un segundo jugador");
+
                 } else if (jugador2.avatar == undefined && jugador1.avatar !== avatar4) {
 
                     jugador2.avatar = avatar4;
@@ -134,17 +139,33 @@ const starGame = (primejugador, segundojugador) => {
     contenedorJugador2.innerHTML = jugador2.avatar.imagenAvatar
 }
 
-// const atacarContricante1 = () => {
 
-//     restarle la vida el jugador2//
-//     innethtml = ReadableStreamDefaultReader
+let botonAtacar1 = document.querySelector(".boton-ataque-1")
+let contenedorVida1 = document.querySelector("vida-1")
+let contenedorVida2 = document.querySelector(".vida-2")
 
-// }
-// contenedorJugador2 = () => {
-
-// }
+const atacarContricante = () => {
 
 
+    switch (atacante) {
+        case 'jugador1':
+            jugador1.avatar.fuerza = fuerzaRamdon
+            jugador1.atacar(jugador2, jugador1)
+            contenedorVida2.innerHTML = jugador2.avatar.vida
+            if (jugador2.avatar.vida <= 0) {
+                alert("El jugador 2 ha perdido")
+            } break;
+        case 'jugador2':
+            jugador2.avatar.fuerza = fuerzaRamdon
+            jugador2.atacar(jugador1, jugador2)
+            contenedorVida1.innerHTML = jugador1.avatar.vida
+            if (jugador1.avatar.vida <= 0) {
+                alert("El jugador 2 ha perdido")
+            } break;
+
+    }
+
+    const
 
 // funcionAtacar()
 
