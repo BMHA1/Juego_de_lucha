@@ -24,11 +24,6 @@ class Jugador {
 
 }
 
-function getRandomArbitrary(min, max) {
-    return Math.floor(Math.random() * (max - min) + min)
-}
-
-
 let avatar1 = new Avatar("Darth Vader", 0, `<img class="imagen-seleccionado" src="/Imagenes/Darth_Vader.jpg"alt="Darth Vader">`)
 // console.log(avatar1)
 let avatar2 = new Avatar("Yoda", 0, `<img class="imagen-seleccionado" src="/Imagenes/Yoda.jpg" alt="Yoda">`)
@@ -45,9 +40,9 @@ let jugador2 = new Jugador()
 // let escenario1 = new Escenario()
 
 // PROCESO DE SELECCION 
-let fuerzaRamdon = getRandomArbitrary(5, 20)
 
-function avatarSelection(player) {
+
+const avatarSelection=(player)=> {
 
 
     if (jugador1.avatar == undefined || jugador2.avatar == undefined) {
@@ -108,7 +103,6 @@ function avatarSelection(player) {
                 break
         }
     }
-
 }
 
 
@@ -134,16 +128,16 @@ let contenedorVida2 = document.querySelector(".vida-2")
 const atacarContricante = (atacante) => {
     switch (atacante) {
         case 'jugador1':
-            jugador1.avatar.fuerza = fuerzaRamdon
+            jugador1.avatar.fuerza = Math.floor(Math.random() * (100))
             jugador1.atacar(jugador2, jugador1) // método (jugadorPierdevia,jugadorqueataca)
-            contenedorVida2.innerHTML = jugador2.avatar.vida //
+            contenedorVida2.innerHTML = `${jugador2.avatar.vida} %` //
             if (jugador2.avatar.vida <= 0) {
                 funcionFinJuego(jugador1)
             } break;
         case 'jugador2':
-            jugador2.avatar.fuerza = fuerzaRamdon
+            jugador2.avatar.fuerza = Math.floor(Math.random() * (100))
             jugador2.atacar(jugador1, jugador2) 
-            contenedorVida1.innerHTML = jugador1.avatar.vida
+            contenedorVida1.innerHTML = `${jugador1.avatar.vida} %`
             if (jugador1.avatar.vida <= 0) { //si jugador 1 pierde, inicia función fin de juego e imprime el ganador
                 funcionFinJuego(jugador2)
             } break;
@@ -158,7 +152,7 @@ let jugadorGanador = document.querySelector(".contenedor-ganador")
 const funcionFinJuego = ganador => {
     pantallaPrincipalCombate.style.display = 'none';
     pantallaFinCombate.style.display = 'flex'
-    nombreGanador.innerHTML = ganador.avatar.nombre
+     nombreGanador.innerHTML = `¡ENHORABUENA, HAS GANADO!`
     console.log(ganador)
     jugadorGanador.innerHTML = ganador.avatar.imagenAvatar
 }
