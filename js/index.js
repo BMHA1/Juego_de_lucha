@@ -152,12 +152,6 @@ const atacarContricante = (atacante) => {
             if (jugador1.avatar.vida <= 0) {
                 alert("El jugador 2 ha perdido")
             } break;
-
     }
-
 }
-
-// funcionAtacar()
-
-
 // funcionFinJuego()
