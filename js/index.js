@@ -1,13 +1,3 @@
-// class Escenario {
-//     constructor(seleccion1, seleccion2, ganador) {
-
-//         // this.jugador1 = seleccion1
-//         // this.jugador2 = seleccion2
-//         // this.ganador = null
-//     }
-
-// }
-
 class Avatar {
     constructor(nombre, fuerza, img) {
         this.vida = 100
@@ -38,7 +28,6 @@ function getRandomArbitrary(min, max) {
     return Math.floor(Math.random() * (max - min) + min)
 }
 
-let fuerzaRamdon = getRandomArbitrary(5, 20)
 
 let avatar1 = new Avatar("Darth Vader", 0, `<img class="imagen-seleccionado" src="/Imagenes/Darth_Vader.jpg"alt="Darth Vader">`)
 // console.log(avatar1)
@@ -56,6 +45,7 @@ let jugador2 = new Jugador()
 // let escenario1 = new Escenario()
 
 // PROCESO DE SELECCION 
+let fuerzaRamdon = getRandomArbitrary(5, 20)
 
 function avatarSelection(player) {
 
@@ -141,10 +131,10 @@ const starGame = (primejugador, segundojugador) => {
 
 
 let botonAtacar1 = document.querySelector(".boton-ataque-1")
-let contenedorVida1 = document.querySelector("vida-1")
+let contenedorVida1 = document.querySelector(".vida-1")
 let contenedorVida2 = document.querySelector(".vida-2")
 
-const atacarContricante = () => {
+const atacarContricante = (atacante) => {
 
 
     switch (atacante) {
@@ -165,7 +155,7 @@ const atacarContricante = () => {
 
     }
 
-    const
+}
 
 // funcionAtacar()
 
