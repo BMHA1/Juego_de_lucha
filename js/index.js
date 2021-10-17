@@ -65,7 +65,7 @@ function avatarSelection(player) {
                 } else if (jugador2.avatar == undefined && jugador1.avatar !== avatar1) {
 
                     jugador2.avatar = avatar1;
-                    starGame(jugador1, jugador2);
+                    starGame();
                 }
                 break
             case 'yoda'://avatar2
@@ -76,7 +76,7 @@ function avatarSelection(player) {
 
                 } else if (jugador2.avatar == undefined && jugador1.avatar !== avatar2) {
                     jugador2.avatar = avatar2;
-                    starGame(jugador1, jugador2);
+                    starGame();
 
                 }
                 break
@@ -89,7 +89,7 @@ function avatarSelection(player) {
 
                 } else if (jugador2.avatar == undefined && jugador1.avatar !== avatar3) {
                     jugador2.avatar = avatar3;
-                    starGame(jugador1, jugador2);
+                    starGame();
                 }
                 break
             case 'lukeSkywalker'://avatar4
@@ -102,7 +102,7 @@ function avatarSelection(player) {
                 } else if (jugador2.avatar == undefined && jugador1.avatar !== avatar4) {
 
                     jugador2.avatar = avatar4;
-                    starGame(jugador1, jugador2);
+                    starGame();
 
                 }
                 break
@@ -120,38 +120,45 @@ let contenedorJugador1 = document.querySelector(".contenedor-seleccionado-1")
 let contenedorJugador2 = document.querySelector(".contenedor-seleccionado-2")
 
 
-const starGame = (primejugador, segundojugador) => {
-    console.log(primejugador)
-    console.log(segundojugador)
+const starGame = () => {
     pantallaPrincipalSeleccion.style.display = 'none'
     pantallaPrincipalCombate.style.display = 'flex';
     contenedorJugador1.innerHTML = jugador1.avatar.imagenAvatar
     contenedorJugador2.innerHTML = jugador2.avatar.imagenAvatar
 }
 
-
 let botonAtacar1 = document.querySelector(".boton-ataque-1")
 let contenedorVida1 = document.querySelector(".vida-1")
 let contenedorVida2 = document.querySelector(".vida-2")
 
 const atacarContricante = (atacante) => {
-
-
     switch (atacante) {
         case 'jugador1':
             jugador1.avatar.fuerza = fuerzaRamdon
-            jugador1.atacar(jugador2, jugador1)
-            contenedorVida2.innerHTML = jugador2.avatar.vida
+            jugador1.atacar(jugador2, jugador1) // método (jugadorPierdevia,jugadorqueataca)
+            contenedorVida2.innerHTML = jugador2.avatar.vida //
             if (jugador2.avatar.vida <= 0) {
-                alert("El jugador 2 ha perdido")
+                funcionFinJuego(jugador1)
             } break;
         case 'jugador2':
             jugador2.avatar.fuerza = fuerzaRamdon
-            jugador2.atacar(jugador1, jugador2)
+            jugador2.atacar(jugador1, jugador2) 
             contenedorVida1.innerHTML = jugador1.avatar.vida
-            if (jugador1.avatar.vida <= 0) {
-                alert("El jugador 2 ha perdido")
+            if (jugador1.avatar.vida <= 0) { //si jugador 1 pierde, inicia función fin de juego e imprime el ganador
+                funcionFinJuego(jugador2)
             } break;
     }
 }
-// funcionFinJuego()
+
+
+let pantallaFinCombate = document.querySelector(".pantalla-fin-combate")
+let nombreGanador = document.querySelector(".nombre-ganador")
+let jugadorGanador = document.querySelector(".contenedor-ganador")
+
+const funcionFinJuego = ganador => {
+    pantallaPrincipalCombate.style.display = 'none';
+    pantallaFinCombate.style.display = 'flex'
+    nombreGanador.innerHTML = ganador.avatar.nombre
+    console.log(ganador)
+    jugadorGanador.innerHTML = ganador.avatar.imagenAvatar
+}
