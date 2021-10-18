@@ -6,7 +6,6 @@ class Avatar {
         this.imagenAvatar = img
     }
 
-
 }
 class Jugador {
 
@@ -20,7 +19,6 @@ class Jugador {
         return jugadorPierdevida.avatar.vida = resultVida
 
     }
-
 
 }
 
@@ -42,7 +40,7 @@ let jugador2 = new Jugador()
 // PROCESO DE SELECCION 
 
 
-const avatarSelection=(player)=> {
+const avatarSelection = (player) => {
 
 
     if (jugador1.avatar == undefined || jugador2.avatar == undefined) {
@@ -101,8 +99,10 @@ const avatarSelection=(player)=> {
 
                 }
                 break
-        }
-    }
+       
+            }
+           
+      } 
 }
 
 
@@ -136,7 +136,7 @@ const atacarContricante = (atacante) => {
             } break;
         case 'jugador2':
             jugador2.avatar.fuerza = Math.floor(Math.random() * (100))
-            jugador2.atacar(jugador1, jugador2) 
+            jugador2.atacar(jugador1, jugador2)
             contenedorVida1.innerHTML = `${jugador1.avatar.vida} %`
             if (jugador1.avatar.vida <= 0) { //si jugador 1 pierde, inicia función fin de juego e imprime el ganador
                 funcionFinJuego(jugador2)
@@ -152,7 +152,7 @@ let jugadorGanador = document.querySelector(".contenedor-ganador")
 const funcionFinJuego = ganador => {
     pantallaPrincipalCombate.style.display = 'none';
     pantallaFinCombate.style.display = 'flex'
-     nombreGanador.innerHTML = `¡ENHORABUENA, HAS GANADO!`
+    nombreGanador.innerHTML = `¡ENHORABUENA, HAS GANADO!`
     console.log(ganador)
     jugadorGanador.innerHTML = ganador.avatar.imagenAvatar
 }

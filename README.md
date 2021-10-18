@@ -70,3 +70,11 @@ const funcionFinJuego = ganador =>
 
 ## Imágenes 
 
+### Flujograma 
+![Flujograma](Imagenes\FLUJOGRAMA.JPG)
+
+### Pantalla principal
+![Primera Pantalla](Imagenes\Pantallazo_seleccion.JPG)
+
+### Pantalla Campo de Batalla
+![Segunda Pantalla](Imagenes\Pantallazo_batalla.JPG)
