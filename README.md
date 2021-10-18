@@ -78,3 +78,4 @@ const funcionFinJuego = ganador =>
 
 ### Pantalla Campo de Batalla
 ![Segunda Pantalla](Imagenes\Pantallazo_batalla.JPG)
+
